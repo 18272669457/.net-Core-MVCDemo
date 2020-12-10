@@ -1,0 +1,21 @@
+﻿@using Microsoft.Extensions.Options
+@using Demo
+@using Demo.Models
+@inject IOptions<DemoOptions> options
+@model Department
+<tr>
+    @if (Model.EmployeeCount>options.Value.BoldDepartmentEmployeeCountThreshold)
+    {
+        <th><strong>@Model.Name</strong></th>
+    }
+    else
+    {
+          <th>@Model.Name</th>   
+    }
+    <th>@Model.Location</th>
+    <th>@Model.EmployeeCount</th>
+
+    <th>
+        <a asp-controller="Employee" asp-action="Index" asp-route-departmentId="@Model.Id">Employee</a>
+    </th>   
+</tr>

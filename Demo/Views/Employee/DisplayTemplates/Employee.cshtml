@@ -1,0 +1,16 @@
+﻿@using Demo.Models
+@model  Employee
+            <tr>
+                <th>@Model.FirstName</th>
+                <th>@Model.LastName</th>
+                <th>@Model.Gender</th>
+                <th>@(Model.Fired?"是":"")</th>
+                <th>
+                    @if (!Model.Fired)
+                    {
+                    <a asp-controller="Employee" asp-action="Fire" asp-route-employeeId="@Model.Id">
+                        Fire
+                    </a>
+                    }
+                </th>
+            </tr>
